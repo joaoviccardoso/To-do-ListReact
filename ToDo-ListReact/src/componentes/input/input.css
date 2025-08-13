@@ -1,0 +1,13 @@
+    .input-tarefa{
+        border-radius: 6px;
+        border: #212121 solid 1px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        height: 30px;
+        transition: border 0.2s, box-shadow 0.2s
+    }
+
+    .input-tarefa:focus{
+        box-shadow: 0 0 5px #1C86EE; /* efeito de foco */
+        outline: none; /* remove contorno padrão */
+        border: solid 2px #1C86EE;
+    }

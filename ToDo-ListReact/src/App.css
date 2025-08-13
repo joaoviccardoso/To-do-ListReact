@@ -1,3 +1,9 @@
+h1{
+    font-family: "Roboto", sans-serif;
+    color: #212121;
+    text-align: center;
+}
+
 section{
     margin-top: 1.5rem;
 }
@@ -9,11 +15,22 @@ section{
 }
 
 .container-tarefas{
-    border: #212121 1px solid;
+    border-left: #212121 1px solid;
+    border-right: #212121 1px solid;
 }
 
 .container-cadastrar-tarefa{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
     padding: 1rem;
     border: solid 1px #212121;
     border-radius: 8px;
+}
+
+.tarefas{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: #212121 1px solid;
 }

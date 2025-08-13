@@ -1,0 +1,38 @@
+.btn-add{
+    font-family: "Roboto", sans-serif;
+    background-color: #1E90FF;
+    width: 100px;
+    height: 30px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    color: #f2f2f2;
+    transition:background-color 0.2s;
+}
+
+.btn-add:hover{
+    background-color: #1C86EE;
+}
+
+.btn-estados, .btn-excluir{
+    font-family: "Roboto", sans-serif;
+    background-color: #dfdfdf;
+    height: 25px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    transition: background-color 0.2s;
+}
+
+.btn-estados:hover{
+    background-color: #D3D3D3;
+}
+
+.btn-excluir{
+    background-color: #FF4C4C;
+    color: #FFF;
+}
+
+.btn-excluir:hover{
+    background-color: #E04343;
+}

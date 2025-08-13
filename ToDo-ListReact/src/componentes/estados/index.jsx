@@ -3,7 +3,7 @@ import Botao from '../button'
 
 function Estados(){
     return(
-        <div>
+        <div className='container-btn-estados'>
             <Botao
                 className="btn-estados"
                 onClick=""
