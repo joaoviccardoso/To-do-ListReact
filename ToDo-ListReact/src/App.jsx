@@ -15,6 +15,10 @@ function App() {
     console.log(tarefas)
   }
 
+  function excluirTarefa(indexParaRemover){
+    setTarefas(tarefas.filter((_, index) => index !== indexParaRemover));
+  }
+
   return (
    <div>
       <h1>To-Do List</h1>
@@ -40,6 +44,7 @@ function App() {
         <div className="container-tarefas">
           <Tarefas
             tarefas={tarefas}
+            excluirTarefa={excluirTarefa}
           />
         </div>
       </section>
