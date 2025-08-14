@@ -2,14 +2,17 @@ import './App.css'
 import Botao from './componentes/button'
 import Input from './componentes/input'
 import Estados from './componentes/estados'
+import Tarefas from './componentes/tarefas'
 import { useState } from 'react'
 
 function App() {
-  const tarefas = ["Fazer lição", "Arrumar a Mochila", "Finalizar o livro"]
+  let [tarefas, setTarefas] = useState(['Fazer lição', 'Limpar Casa', 'Fazer o Almoço'])
   const [inputTarefa, setInputTarefa] = useState('');
 
   function mostrarValorInput(){
     console.log(inputTarefa)
+    setTarefas([...tarefas, inputTarefa])
+    console.log(tarefas)
   }
 
   return (
@@ -35,21 +38,9 @@ function App() {
         </div>
 
         <div className="container-tarefas">
-          {tarefas.map((tarefa, index) => {
-            return(<div key={index} className="tarefas">
-                    <Input
-                      type="checkbox"
-                      className="input-concluido"
-                    />
-                    <p>{tarefa}</p>
-                    <Botao
-                      onClick=""
-                      className="btn-excluir"
-                      text="Excluir"
-                    />
-                  </div>
-            )
-          })}
+          <Tarefas
+            tarefas={tarefas}
+          />
         </div>
       </section>
       
