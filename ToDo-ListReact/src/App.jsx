@@ -7,16 +7,31 @@ import { useState } from 'react'
 
 function App() {
   let [tarefas, setTarefas] = useState(['Fazer lição', 'Limpar Casa', 'Fazer o Almoço'])
+  const [editarTarefa, setEditarTareda] = useState(null)
   const [inputTarefa, setInputTarefa] = useState('');
 
   function mostrarValorInput(){
-    console.log(inputTarefa)
-    setTarefas([...tarefas, inputTarefa])
-    console.log(tarefas)
+    if(editarTarefa !== null){
+      const atualizar = tarefas.map((tarefa, index) => {
+        return index === editarTarefa ? inputTarefa : tarefa
+      })
+      setTarefas(atualizar)
+      console.log(atualizar)
+      console.log(tarefas)
+    } else{
+      setTarefas([...tarefas, inputTarefa])
+      console.log(tarefas)
+    }
+    
   }
 
   function excluirTarefa(indexParaRemover){
     setTarefas(tarefas.filter((_, index) => index !== indexParaRemover));
+  }
+
+  function adicionarTarefaNoInput(indexParaEditar){
+      setEditarTareda(indexParaEditar)
+      setInputTarefa(tarefas[indexParaEditar])
   }
 
   return (
@@ -45,6 +60,7 @@ function App() {
           <Tarefas
             tarefas={tarefas}
             excluirTarefa={excluirTarefa}
+            editarTarefa={adicionarTarefaNoInput}
           />
         </div>
       </section>

@@ -28,9 +28,3 @@ section{
     border-radius: 8px;
 }
 
-.tarefas{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-bottom: #212121 1px solid;
-}

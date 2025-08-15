@@ -14,7 +14,7 @@
     background-color: #1C86EE;
 }
 
-.btn-estados, .btn-excluir{
+.btn-estados, .btn-excluir, .btn-editar{
     font-family: "Roboto", sans-serif;
     background-color: #dfdfdf;
     height: 25px;
@@ -35,4 +35,13 @@
 
 .btn-excluir:hover{
     background-color: #E04343;
+}
+
+.btn-editar{
+    background-color: #1E90FF;
+    color: #FFF;
+}
+
+.btn-editar:hover{
+    background-color: #1E90FF;
 }

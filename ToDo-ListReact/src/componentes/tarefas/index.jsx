@@ -2,7 +2,7 @@ import './tarefas.css'
 import Input from '../input'
 import Botao from '../button'
 
-function Tarefas({tarefas, excluirTarefa}){
+function Tarefas({tarefas, excluirTarefa, editarTarefa}){
 
     return (
         <div>
@@ -13,11 +13,20 @@ function Tarefas({tarefas, excluirTarefa}){
                       className="input-concluido"
                     />
                     <p>{tarefa}</p>
-                    <Botao
-                      onClick={() => excluirTarefa(index)}
-                      className="btn-excluir"
-                      text="Excluir"
-                    />
+
+                    <div className='container-btnsEditarExcluir'>
+                      <Botao
+                        onClick={() => excluirTarefa(index)}
+                        className="btn-excluir"
+                        text="Excluir"
+                      />
+                      <Botao
+                        onClick={() => editarTarefa(index)}
+                        className="btn-editar"
+                        text='Editar'
+                      />
+                    </div>
+                    
                   </div>
             )
           })} 
