@@ -12,7 +12,7 @@ function Tarefas({tarefas, excluirTarefa, editarTarefa}){
                       type="checkbox"
                       className="input-concluido"
                     />
-                    <p>{tarefa}</p>
+                    <p>{tarefa.titulo}</p>
 
                     <div className='container-btnsEditarExcluir'>
                       <Botao

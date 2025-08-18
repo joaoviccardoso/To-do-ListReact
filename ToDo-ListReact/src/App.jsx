@@ -6,20 +6,29 @@ import Tarefas from './componentes/tarefas'
 import { useState } from 'react'
 
 function App() {
-  let [tarefas, setTarefas] = useState(['Fazer lição', 'Limpar Casa', 'Fazer o Almoço'])
+  let [tarefas, setTarefas] = useState([
+    { id: 0, titulo:'Fazer lição', concluida: false },
+    { id: 1, titulo:'Limpar Casa', concluida: false},
+    { id: 2, titulo:'Limpar Casa', concluida: false},
+  ])
   const [editarTarefa, setEditarTareda] = useState(null)
   const [inputTarefa, setInputTarefa] = useState('');
 
   function mostrarValorInput(){
+    const novoId = tarefas.length > 0 ? tarefas[tarefas.length - 1].id + 1 : 0
+    console.log(novoId)
+
     if(editarTarefa !== null){
+      console.log(editarTarefa)
       const atualizar = tarefas.map((tarefa, index) => {
+        console.log(index, editarTarefa, inputTarefa, tarefa.id)
         return index === editarTarefa ? inputTarefa : tarefa
       })
-      setTarefas(atualizar)
+      setTarefas({id: editarTarefa, titulo:atualizar, concluida:false})
       console.log(atualizar)
       console.log(tarefas)
     } else{
-      setTarefas([...tarefas, inputTarefa])
+      setTarefas([...tarefas, {id: novoId, titulo: inputTarefa, concluida: false}])
       console.log(tarefas)
     }
     
@@ -30,8 +39,9 @@ function App() {
   }
 
   function adicionarTarefaNoInput(indexParaEditar){
-      setEditarTareda(indexParaEditar)
-      setInputTarefa(tarefas[indexParaEditar])
+    console.log(indexParaEditar)
+      setEditarTareda(tarefas[indexParaEditar].titulo)
+      setInputTarefa(tarefas[indexParaEditar].titulo)
   }
 
   return (
