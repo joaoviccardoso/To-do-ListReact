@@ -21,17 +21,18 @@ function App() {
     if(editarTarefa !== null){
       console.log(editarTarefa)
       const atualizar = tarefas.map((tarefa, index) => {
-        console.log(index, editarTarefa, inputTarefa, tarefa.id)
-        return index === editarTarefa ? inputTarefa : tarefa
-      })
-      setTarefas({id: editarTarefa, titulo:atualizar, concluida:false})
-      console.log(atualizar)
-      console.log(tarefas)
+        if (index === editarTarefa) {
+          console.log("certo")
+          return { ...tarefa, titulo: inputTarefa }
+        } 
+          return tarefa
+        })
+      setTarefas(atualizar)
+      setEditarTareda(null)
+      setInputTarefa('')
     } else{
       setTarefas([...tarefas, {id: novoId, titulo: inputTarefa, concluida: false}])
-      console.log(tarefas)
     }
-    
   }
 
   function excluirTarefa(indexParaRemover){
@@ -39,9 +40,8 @@ function App() {
   }
 
   function adicionarTarefaNoInput(indexParaEditar){
-    console.log(indexParaEditar)
-      setEditarTareda(tarefas[indexParaEditar].titulo)
-      setInputTarefa(tarefas[indexParaEditar].titulo)
+    setEditarTareda(indexParaEditar)
+    setInputTarefa(tarefas[indexParaEditar].titulo)
   }
 
   return (

@@ -3,8 +3,7 @@ import Input from '../input'
 import Botao from '../button'
 
 function Tarefas({tarefas, excluirTarefa, editarTarefa}){
-
-    return (
+    return (     
         <div>
             {tarefas.map((tarefa, index) => {
             return(<div key={index} className="tarefas">
