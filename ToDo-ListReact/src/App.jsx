@@ -32,11 +32,23 @@ function App() {
       setInputTarefa('')
     } else{
       setTarefas([...tarefas, {id: novoId, titulo: inputTarefa, concluida: false}])
+      console.log(tarefas)
     }
   }
 
   function excluirTarefa(indexParaRemover){
     setTarefas(tarefas.filter((_, index) => index !== indexParaRemover));
+  }
+
+  function tarefaConcluida(indexParaConcluir){
+    console.log(indexParaConcluir)
+    const novasTarefas = tarefas.map((tarefa) => {
+      if (tarefa.id === indexParaConcluir){
+        return {...tarefa, concluida: !tarefa.concluida}
+      }
+      return tarefa
+    })
+    setTarefas(novasTarefas)
   }
 
   function adicionarTarefaNoInput(indexParaEditar){
@@ -71,6 +83,7 @@ function App() {
             tarefas={tarefas}
             excluirTarefa={excluirTarefa}
             editarTarefa={adicionarTarefaNoInput}
+            tarefaConcluida={tarefaConcluida}
           />
         </div>
       </section>

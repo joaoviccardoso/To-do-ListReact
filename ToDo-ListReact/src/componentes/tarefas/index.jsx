@@ -2,14 +2,15 @@ import './tarefas.css'
 import Input from '../input'
 import Botao from '../button'
 
-function Tarefas({tarefas, excluirTarefa, editarTarefa}){
+function Tarefas({tarefas, excluirTarefa, editarTarefa, tarefaConcluida}){
     return (     
         <div>
             {tarefas.map((tarefa, index) => {
-            return(<div key={index} className="tarefas">
+            return(<div key={tarefa.id} className="tarefas" style={{background: tarefa.concluida ? "#00ca00ff" : "none"}}>
                     <Input
                       type="checkbox"
                       className="input-concluido"
+                      onChange={() => tarefaConcluida(index)}
                     />
                     <p>{tarefa.titulo}</p>
 
