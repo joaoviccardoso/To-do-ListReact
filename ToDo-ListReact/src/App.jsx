@@ -13,6 +13,7 @@ function App() {
   ])
   const [editarTarefa, setEditarTareda] = useState(null)
   const [inputTarefa, setInputTarefa] = useState('');
+  const [filtro, setFilter] = useState("Todos")
 
   function mostrarValorInput(){
     const novoId = tarefas.length > 0 ? tarefas[tarefas.length - 1].id + 1 : 0
@@ -56,6 +57,12 @@ function App() {
     setInputTarefa(tarefas[indexParaEditar].titulo)
   }
 
+  const tarefasFiltradas = tarefas.filter((tarefa) => {
+    if (filtro === "pendentes") return !tarefa.concluida
+    if (filtro === "concluidas") return tarefa.concluida
+    return true // todas
+  })
+
   return (
    <div>
       <h1>To-Do List</h1>
@@ -75,12 +82,14 @@ function App() {
       
       <section>
         <div className="container-estados">
-          <Estados></Estados>
+          <Estados
+            setFilter={setFilter}
+          />
         </div>
 
         <div className="container-tarefas">
           <Tarefas
-            tarefas={tarefas}
+            tarefas={tarefasFiltradas}
             excluirTarefa={excluirTarefa}
             editarTarefa={adicionarTarefaNoInput}
             tarefaConcluida={tarefaConcluida}
